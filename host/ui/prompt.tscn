@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://ui/prompt.gd" id="1_prompt"]
+
+[node name="Prompt" type="HBoxContainer"]
+theme_override_constants/separation = 8
+script = ExtResource("1_prompt")
+
+[node name="Key" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 13
+text = "Esc"
+
+[node name="Caption" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.603922, 0.576471, 0.533333, 1)
+text = "Pause"
