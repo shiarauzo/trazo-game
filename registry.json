@@ -1,0 +1,36 @@
+{
+  "name": "trazo",
+  "root": "host/ui",
+  "destination": "ui",
+  "pieces": [
+    {
+      "name": "tokens",
+      "files": ["theme.tres"]
+    },
+    {
+      "name": "focus",
+      "depends": ["tokens"],
+      "files": ["focus_scope.gd"]
+    },
+    {
+      "name": "sheet",
+      "depends": ["tokens", "focus"],
+      "files": ["sheet.tscn", "sheet.gd"]
+    },
+    {
+      "name": "prompt",
+      "depends": ["tokens"],
+      "files": ["prompt.tscn", "prompt.gd"]
+    },
+    {
+      "name": "list",
+      "depends": ["tokens"],
+      "files": ["selectable_list.gd"]
+    },
+    {
+      "name": "base",
+      "depends": ["tokens", "focus", "sheet", "prompt", "list"],
+      "files": []
+    }
+  ]
+}

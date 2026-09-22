@@ -1,0 +1,9 @@
+{
+  "name": "trazo",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "trazo": "bun cli/main.ts",
+    "test": "bun test cli/copy.test.ts"
+  }
+}
