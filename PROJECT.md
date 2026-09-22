@@ -23,13 +23,14 @@ dependency.
 
 ## Current state
 
-The public repository, product name, and Shield license exist. There is no
-Godot project, registry, or installer yet.
+The public repository, product name, and Shield license exist. The first
+Screen will be extracted from a Host inside this repository. There is no
+Godot project, Host, registry, or installer yet.
 
 ## Next action
 
-Lock tokens and a native Button with three type variations, then add the
-editor dock that copies those files into an empty Godot project.
+Build a Host inside this repository and extract the first Screen from it.
+The installer dock waits.
 
 ## Links
 
