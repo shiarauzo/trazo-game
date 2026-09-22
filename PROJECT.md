@@ -17,20 +17,20 @@ dependency.
 ## Done when
 
 - Tokens and native Button variations install into an empty Godot project.
-- An editor dock copies registry pieces and their dependencies into `res://`.
+- A CLI copies registry pieces and their dependencies into `res://`.
 - FocusScope, Prompt, Sheet, and SelectableList ship as owned files.
-- A real game can change skin through tokens without rewriting those pieces.
+- A Host can change skin through tokens without rewriting those pieces.
 
 ## Current state
 
-The public repository, product name, and Shield license exist. The first
-Screen will be extracted from a Host inside this repository. There is no
-Godot project, Host, registry, or installer yet.
+The Host, token Theme, pause Screen, base pieces, and CLI exist in this
+repository. People can open `host/` in Godot or copy files with
+`bun cli/main.ts`.
 
 ## Next action
 
-Build a Host inside this repository and extract the first Screen from it.
-The installer dock waits.
+Open the Host in Godot, play pause and settings, then run the CLI against a
+throwaway Godot project and confirm the copied files.
 
 ## Links
 
