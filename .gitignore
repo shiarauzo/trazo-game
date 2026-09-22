@@ -1,5 +1,6 @@
 .DS_Store
 DECISIONS.md
+node_modules/
 
 # Godot
 .godot/
