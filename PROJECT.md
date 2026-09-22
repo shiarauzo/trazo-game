@@ -29,8 +29,8 @@ repository. People can open `host/` in Godot or copy files with
 
 ## Next action
 
-Open the Host in Godot, play pause and settings, then run the CLI against a
-throwaway Godot project and confirm the copied files.
+Watch one Godot author open the Host and run `bun cli/main.ts add base` on
+their own project.
 
 ## Links
 

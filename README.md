@@ -15,6 +15,12 @@ Godot 4.4 or newer.
 3. Move with WASD or arrows.
 4. Press Escape to pause. Settings changes the floor. Resume keeps the change.
 
+Headless check, from `host/`:
+
+```bash
+godot --headless -s res://tools/verify.gd
+```
+
 ## Copy files into your project
 
 Needs [Bun](https://bun.sh).
