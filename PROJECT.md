@@ -4,7 +4,7 @@ This file is public. Do not include personal context, private goals, names of
 people from the vault, health information, private decisions, or local vault
 paths.
 
-**Last updated:** 2026-09-22  
+**Last updated:** 2026-09-27  
 **Status:** active  
 **Type:** other
 
@@ -24,13 +24,15 @@ dependency.
 ## Current state
 
 The Host, token Theme, pause Screen, base pieces, and CLI exist in this
-repository. People can open `host/` in Godot or copy files with
-`bun cli/main.ts`.
+repository. A skin file rewrites that theme in one apply. Fill, danger, the
+sheet, and the prompt key share radius, border, and shadow. Focus uses a
+thicker border. Ghost keeps the radius and border, and stays an outline. The
+Host prompt is visible until pause opens, then it stays gone.
+People can open `host/` in Godot or copy files with `bun cli/main.ts`.
 
 ## Next action
 
-Watch one Godot author open the Host and run `bun cli/main.ts add base` on
-their own project.
+Copy `base` into a real game and see which Piece the skin does not cover.
 
 ## Links
 

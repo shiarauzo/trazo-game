@@ -3,6 +3,7 @@
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { copyFiles, isGodotProject } from "./copy";
+import { applySkinFile } from "./skin";
 import {
   filesForPieces,
   loadRegistry,
@@ -18,6 +19,7 @@ Usage:
   bun cli/main.ts list
   bun cli/main.ts init <godot-project>
   bun cli/main.ts add <piece> <godot-project> [--force]
+  bun cli/main.ts apply
 
 Copied files belong to the project. Do not republish Trazo as a kit.`;
 
@@ -94,6 +96,12 @@ switch (command) {
     const [pieceName, projectPath] = args;
     if (!pieceName || !projectPath) fail(usage);
     await install(pieceName, projectPath, force);
+    break;
+  }
+  case "apply": {
+    const themePath = path.join(repoRoot, "host/ui/theme.tres");
+    await applySkinFile(path.join(repoRoot, "skin.json"), themePath);
+    console.log(`Applied skin to ${themePath}`);
     break;
   }
   default:

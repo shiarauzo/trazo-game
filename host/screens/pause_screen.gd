@@ -1,6 +1,7 @@
 extends CanvasLayer
 
 signal tone_changed(tone: StringName)
+signal opened
 
 @onready var sheet: TrazoSheet = $Sheet
 @onready var menu_list: TrazoSelectableList = $Sheet/Center/Panel/FocusScope/Column/Pages/Menu
@@ -34,6 +35,7 @@ func _open_menu() -> void:
 	_open = true
 	get_tree().paused = true
 	_show_menu()
+	opened.emit()
 
 
 func _close() -> void:

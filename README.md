@@ -37,6 +37,21 @@ FocusScope, and tokens. Existing files are left alone unless you pass
 
 Point your project theme at `res://ui/theme.tres` after `init`.
 
+## Change the skin
+
+`skin.json` is the radius, border, focus border, shadow, and palette. Apply
+rewrites the Host theme, so Button, ghost, danger, the sheet, and the prompt
+key change together. Focus uses a thicker border than the resting state. Shadow
+size is part of the skin. The pause prompt leaves once the menu opens.
+
+```bash
+bun cli/main.ts apply
+```
+
+Fill and the panel share the border and the shadow. Ghost stays an
+outline, including when it is focused. Copy the theme again after apply if a
+project already has one.
+
 ## Use
 
 Use Trazo inside games and tools you ship.

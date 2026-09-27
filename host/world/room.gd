@@ -8,10 +8,12 @@ const TONES := {
 
 @onready var floor_rect: ColorRect = $Floor
 @onready var pause_screen: CanvasLayer = $Pause
+@onready var prompt: TrazoPrompt = $HUD/Prompt
 
 
 func _ready() -> void:
 	pause_screen.tone_changed.connect(_on_tone_changed)
+	pause_screen.opened.connect(prompt.dismiss)
 	_on_tone_changed(&"warm")
 
 

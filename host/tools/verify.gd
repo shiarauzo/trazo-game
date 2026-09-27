@@ -31,8 +31,14 @@ func _run() -> void:
 	if menu == null or settings == null or prompt == null:
 		_fail("Screen pieces missing")
 		return
+	if not prompt.visible:
+		_fail("prompt did not start visible")
+		return
 
 	pause.call("_open_menu")
+	if prompt.visible:
+		_fail("prompt stayed visible after pause opened")
+		return
 	if not sheet.visible:
 		_fail("sheet did not open")
 		return
@@ -54,6 +60,9 @@ func _run() -> void:
 	pause.call("_on_menu", 0, &"Resume")
 	if sheet.visible or paused:
 		_fail("resume did not return to the room")
+		return
+	if prompt.visible:
+		_fail("prompt came back after resume")
 		return
 
 	print("VERIFY_OK")

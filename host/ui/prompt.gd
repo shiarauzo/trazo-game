@@ -15,6 +15,14 @@ func _ready() -> void:
 	var key_style := get_theme_stylebox("key", "trazo")
 	if key_style:
 		key_label.add_theme_stylebox_override("normal", key_style)
+	if has_theme_color("ink", "trazo"):
+		key_label.add_theme_color_override("font_color", get_theme_color("ink", "trazo"))
+	if has_theme_color("paper", "trazo"):
+		caption_label.add_theme_color_override("font_color", get_theme_color("paper", "trazo"))
+
+
+func dismiss() -> void:
+	visible = false
 
 
 func _event_text() -> String:

@@ -33,6 +33,8 @@ test("base resolves owned files once", async () => {
   expect(names[0]).toBe("tokens");
   expect(filesForPieces(registry, names)).toEqual([
     "theme.tres",
+    "SourceSans3-Regular.ttf",
+    "SourceSans3-OFL.txt",
     "focus_scope.gd",
     "sheet.tscn",
     "sheet.gd",
