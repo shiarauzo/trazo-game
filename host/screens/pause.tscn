@@ -1,0 +1,58 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://screens/pause_screen.gd" id="1_pause"]
+[ext_resource type="PackedScene" path="res://ui/sheet.tscn" id="2_sheet"]
+[ext_resource type="Script" path="res://ui/selectable_list.gd" id="3_list"]
+
+[node name="Pause" type="CanvasLayer"]
+process_mode = 3
+layer = 100
+script = ExtResource("1_pause")
+
+[node name="Sheet" parent="." instance=ExtResource("2_sheet")]
+
+[node name="Menu" type="VBoxContainer" parent="Sheet/Center/Panel/FocusScope/Column/Pages"]
+layout_mode = 2
+theme_override_constants/separation = 8
+script = ExtResource("3_list")
+
+[node name="Resume" type="Button" parent="Sheet/Center/Panel/FocusScope/Column/Pages/Menu"]
+layout_mode = 2
+text = "Resume"
+
+[node name="Settings" type="Button" parent="Sheet/Center/Panel/FocusScope/Column/Pages/Menu"]
+layout_mode = 2
+theme_type_variation = &"ghost"
+text = "Settings"
+
+[node name="Quit" type="Button" parent="Sheet/Center/Panel/FocusScope/Column/Pages/Menu"]
+layout_mode = 2
+theme_type_variation = &"danger"
+text = "Quit"
+
+[node name="Settings" type="VBoxContainer" parent="Sheet/Center/Panel/FocusScope/Column/Pages"]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 8
+script = ExtResource("3_list")
+
+[node name="Warm" type="Button" parent="Sheet/Center/Panel/FocusScope/Column/Pages/Settings"]
+layout_mode = 2
+theme_type_variation = &"ghost"
+text = "Warm floor"
+
+[node name="Cold" type="Button" parent="Sheet/Center/Panel/FocusScope/Column/Pages/Settings"]
+layout_mode = 2
+theme_type_variation = &"ghost"
+text = "Cold floor"
+
+[node name="Ash" type="Button" parent="Sheet/Center/Panel/FocusScope/Column/Pages/Settings"]
+layout_mode = 2
+theme_type_variation = &"ghost"
+text = "Ash floor"
+
+[node name="Back" type="Button" parent="Sheet/Center/Panel/FocusScope/Column/Pages/Settings"]
+layout_mode = 2
+text = "Back"
+
+[editable path="Sheet"]
