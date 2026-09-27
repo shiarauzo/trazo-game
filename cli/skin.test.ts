@@ -13,7 +13,8 @@ import {
 const skin: Skin = {
   radius: 0,
   border: 3,
-  shadow: { x: 6, y: 6 },
+  focusBorder: 6,
+  shadow: { x: 6, y: 6, size: 4 },
   ink: "#111111",
   paper: "#f4f1ea",
   fill: "#d0d0d0",
@@ -69,7 +70,7 @@ test("ghost stays an outline when focused", () => {
   });
   expect(styles.ghost.focus).toMatchObject({
     backgroundAlpha: 0,
-    border: 3,
+    border: 6,
     borderColor: "#ff4fa3",
     shadowSize: 0,
   });
@@ -91,6 +92,7 @@ test("danger keeps the fill geometry and its own color", () => {
   });
   expect(styles.danger.focus).toMatchObject({
     background: "#c43b3b",
+    border: 6,
     borderColor: "#ff4fa3",
     shadowX: 6,
   });
@@ -122,13 +124,13 @@ test("the theme file keeps the ghost focus outline and the fill shadow", () => {
   const ghostFocus = block(theme, "ghost_focus");
   expect(ghostFocus).toContain("bg_color = Color(0, 0, 0, 0)");
   expect(ghostFocus).toContain("border_color = Color(1, 0.309804, 0.639216, 1)");
-  expect(ghostFocus).toContain("border_width_left = 3");
+  expect(ghostFocus).toContain("border_width_left = 6");
   expect(ghostFocus).toContain("shadow_size = 0");
 
   const fillNormal = block(theme, "fill_normal");
   expect(fillNormal).toContain("bg_color = Color(0.815686, 0.815686, 0.815686, 1)");
   expect(fillNormal).toContain("shadow_offset = Vector2(6, 6)");
-  expect(fillNormal).toContain("shadow_size = 1");
+  expect(fillNormal).toContain("shadow_size = 4");
   expect(fillNormal).toContain("corner_radius_top_left = 0");
   expect(fillNormal).toContain("border_width_left = 3");
   expect(theme).toContain(
@@ -137,6 +139,8 @@ test("the theme file keeps the ghost focus outline and the fill shadow", () => {
   expect(theme).toContain(
     "trazo/colors/text = Color(0.066667, 0.066667, 0.066667, 1)",
   );
+  expect(theme).toContain('default_font = ExtResource("1_font")');
+  expect(block(theme, "fill_focus")).toContain("border_width_left = 6");
 });
 
 test("the host skin stays sharp and shared", async () => {
@@ -147,6 +151,9 @@ test("the host skin stays sharp and shared", async () => {
   expect(styles.fill.normal.border).toBe(styles.panel.border);
   expect(styles.fill.normal.shadowX).toBe(styles.panel.shadowX);
   expect(styles.fill.normal.shadowY).toBe(styles.panel.shadowY);
+  expect(styles.fill.focus.border).toBeGreaterThan(styles.fill.normal.border);
+  expect(styles.ghost.focus.border).toBe(hostSkin.focusBorder);
+  expect(styles.fill.normal.shadowSize).toBe(hostSkin.shadow.size);
   expect(styles.ghost.focus.backgroundAlpha).toBe(0);
   expect(styles.ghost.focus.shadowSize).toBe(0);
 });

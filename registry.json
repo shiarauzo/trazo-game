@@ -5,7 +5,7 @@
   "pieces": [
     {
       "name": "tokens",
-      "files": ["theme.tres"]
+      "files": ["theme.tres", "SourceSans3-Regular.ttf", "SourceSans3-OFL.txt"]
     },
     {
       "name": "focus",

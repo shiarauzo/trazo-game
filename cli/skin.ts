@@ -4,7 +4,8 @@ import path from "node:path";
 export type Skin = {
   radius: number;
   border: number;
-  shadow: { x: number; y: number };
+  focusBorder: number;
+  shadow: { x: number; y: number; size: number };
   ink: string;
   paper: string;
   fill: string;
@@ -41,8 +42,6 @@ export type SkinStyles = {
   text: { color: string; border: number; shadowSize: number };
 };
 
-// Godot draws no shadow when the size is 0. This is the hard edge.
-const HARD_SHADOW = 1;
 const HOVER_STEP = 16;
 const PRESSED_STEP = 32;
 
@@ -70,21 +69,26 @@ const fillBox = (
   skin: Skin,
   background: string,
   borderColor: string,
+  border = skin.border,
 ): StyleBox => ({
   radius: skin.radius,
-  border: skin.border,
+  border,
   borderColor,
   background,
   backgroundAlpha: 1,
-  shadowSize: HARD_SHADOW,
+  shadowSize: skin.shadow.size,
   shadowX: skin.shadow.x,
   shadowY: skin.shadow.y,
   shadowColor: skin.ink,
 });
 
-const outlineBox = (skin: Skin, borderColor: string): StyleBox => ({
+const outlineBox = (
+  skin: Skin,
+  borderColor: string,
+  border = skin.border,
+): StyleBox => ({
   radius: skin.radius,
-  border: skin.border,
+  border,
   borderColor,
   background: skin.ink,
   backgroundAlpha: 0,
@@ -101,7 +105,7 @@ const treatment = (
   normal: fillBox(skin, background, skin.ink),
   hover: fillBox(skin, darken(background, HOVER_STEP), skin.ink),
   pressed: fillBox(skin, darken(background, PRESSED_STEP), skin.ink),
-  focus: fillBox(skin, background, skin.accent),
+  focus: fillBox(skin, background, skin.accent, skin.focusBorder),
 });
 
 export const stylesFor = (skin: Skin): SkinStyles => ({
@@ -110,7 +114,7 @@ export const stylesFor = (skin: Skin): SkinStyles => ({
     normal: outlineBox(skin, skin.ink),
     hover: outlineBox(skin, skin.accent),
     pressed: outlineBox(skin, skin.accent),
-    focus: outlineBox(skin, skin.accent),
+    focus: outlineBox(skin, skin.accent, skin.focusBorder),
   },
   danger: treatment(skin, skin.danger),
   panel: fillBox(skin, skin.surface, skin.ink),
@@ -196,9 +200,14 @@ export const renderTheme = (skin: Skin): string => {
   const buttonText = godotColor(contrastText(skin, skin.fill), 1);
   const dangerText = godotColor(contrastText(skin, skin.danger), 1);
   const ink = godotColor(styles.text.color, 1);
-  const header = `[gd_resource type="Theme" load_steps=${boxes.length + 1} format=3]\n\n`;
+  const header = `[gd_resource type="Theme" load_steps=${boxes.length + 2} format=3]
+
+[ext_resource type="FontFile" path="res://ui/SourceSans3-Regular.ttf" id="1_font"]
+
+`;
   const body = `${boxes.map(([id, box, margins]) => styleBox(id, box, margins)).join("\n")}
 [resource]
+default_font = ExtResource("1_font")
 default_font_size = 18
 ${fontColors("Button", buttonText)}
 Button/colors/font_disabled_color = ${godotColor(skin.muted, 1)}
@@ -243,7 +252,10 @@ export const loadSkin = async (skinPath: string): Promise<Skin> => {
   if (
     raw.radius === undefined ||
     raw.border === undefined ||
-    raw.shadow === undefined ||
+    raw.focusBorder === undefined ||
+    raw.shadow?.x === undefined ||
+    raw.shadow?.y === undefined ||
+    raw.shadow?.size === undefined ||
     raw.ink === undefined ||
     raw.paper === undefined ||
     raw.fill === undefined ||

@@ -21,6 +21,10 @@ func _ready() -> void:
 		caption_label.add_theme_color_override("font_color", get_theme_color("paper", "trazo"))
 
 
+func dismiss() -> void:
+	visible = false
+
+
 func _event_text() -> String:
 	var events := InputMap.action_get_events(action_name)
 	if events.is_empty():

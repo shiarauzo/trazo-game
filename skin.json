@@ -1,11 +1,12 @@
 {
   "radius": 0,
   "border": 3,
-  "shadow": { "x": 6, "y": 6 },
+  "focusBorder": 6,
+  "shadow": { "x": 6, "y": 6, "size": 1 },
   "ink": "#1a1a1a",
   "paper": "#f6f3ec",
   "fill": "#5c5854",
-  "accent": "#ff4fa3",
+  "accent": "#8a847c",
   "danger": "#c44536",
   "surface": "#fffdf8",
   "muted": "#6b645c"

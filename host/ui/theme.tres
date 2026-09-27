@@ -1,4 +1,6 @@
-[gd_resource type="Theme" load_steps=15 format=3]
+[gd_resource type="Theme" load_steps=16 format=3]
+
+[ext_resource type="FontFile" path="res://ui/SourceSans3-Regular.ttf" id="1_font"]
 
 [sub_resource type="StyleBoxFlat" id="fill_normal"]
 content_margin_left = 18.0
@@ -63,11 +65,11 @@ content_margin_top = 12.0
 content_margin_right = 18.0
 content_margin_bottom = 12.0
 bg_color = Color(0.360784, 0.345098, 0.329412, 1)
-border_width_left = 3
-border_width_top = 3
-border_width_right = 3
-border_width_bottom = 3
-border_color = Color(1, 0.309804, 0.639216, 1)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0.541176, 0.517647, 0.486275, 1)
 corner_radius_top_left = 0
 corner_radius_top_right = 0
 corner_radius_bottom_right = 0
@@ -105,7 +107,7 @@ border_width_left = 3
 border_width_top = 3
 border_width_right = 3
 border_width_bottom = 3
-border_color = Color(1, 0.309804, 0.639216, 1)
+border_color = Color(0.541176, 0.517647, 0.486275, 1)
 corner_radius_top_left = 0
 corner_radius_top_right = 0
 corner_radius_bottom_right = 0
@@ -124,7 +126,7 @@ border_width_left = 3
 border_width_top = 3
 border_width_right = 3
 border_width_bottom = 3
-border_color = Color(1, 0.309804, 0.639216, 1)
+border_color = Color(0.541176, 0.517647, 0.486275, 1)
 corner_radius_top_left = 0
 corner_radius_top_right = 0
 corner_radius_bottom_right = 0
@@ -139,11 +141,11 @@ content_margin_top = 12.0
 content_margin_right = 18.0
 content_margin_bottom = 12.0
 bg_color = Color(0, 0, 0, 0)
-border_width_left = 3
-border_width_top = 3
-border_width_right = 3
-border_width_bottom = 3
-border_color = Color(1, 0.309804, 0.639216, 1)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0.541176, 0.517647, 0.486275, 1)
 corner_radius_top_left = 0
 corner_radius_top_right = 0
 corner_radius_bottom_right = 0
@@ -215,11 +217,11 @@ content_margin_top = 12.0
 content_margin_right = 18.0
 content_margin_bottom = 12.0
 bg_color = Color(0.768627, 0.270588, 0.211765, 1)
-border_width_left = 3
-border_width_top = 3
-border_width_right = 3
-border_width_bottom = 3
-border_color = Color(1, 0.309804, 0.639216, 1)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0.541176, 0.517647, 0.486275, 1)
 corner_radius_top_left = 0
 corner_radius_top_right = 0
 corner_radius_bottom_right = 0
@@ -267,6 +269,7 @@ shadow_size = 1
 shadow_offset = Vector2(6, 6)
 
 [resource]
+default_font = ExtResource("1_font")
 default_font_size = 18
 Button/colors/font_color = Color(0.964706, 0.952941, 0.92549, 1)
 Button/colors/font_focus_color = Color(0.964706, 0.952941, 0.92549, 1)
@@ -301,7 +304,7 @@ ghost/styles/focus = SubResource("ghost_focus")
 ghost/styles/hover = SubResource("ghost_hover")
 ghost/styles/normal = SubResource("ghost_normal")
 ghost/styles/pressed = SubResource("ghost_pressed")
-trazo/colors/accent = Color(1, 0.309804, 0.639216, 1)
+trazo/colors/accent = Color(0.541176, 0.517647, 0.486275, 1)
 trazo/colors/danger = Color(0.768627, 0.270588, 0.211765, 1)
 trazo/colors/fill = Color(0.360784, 0.345098, 0.329412, 1)
 trazo/colors/ink = Color(0.101961, 0.101961, 0.101961, 1)

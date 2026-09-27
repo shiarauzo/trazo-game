@@ -28,7 +28,7 @@ A named value in the Theme an author owns: color, space, type, or StyleBox.
 _Avoid_: variable, constant, CSS token
 
 **Skin**:
-The radius, border, shadow, and palette an author applies once. Apply
+The radius, border, focus border, shadow, and palette an author applies once. Apply
 rewrites the Theme so every Piece shares those values.
 _Avoid_: theme pack, mode, preset gallery
 
